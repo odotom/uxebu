@@ -2,10 +2,11 @@ import  assert from 'assert'
 import {loadRemoteFile as loadRemoteFile} from '../src/loadRemoteFile'
 
 describe ('loading JSON from server', function () {
+  const urlPath = 'http://katas.tddbin.com/katas/es6/language/'
 
   it ('file does exist', function (done) {
     //arrange
-    var validUrl = 'http://katas.tddbin.com/katas/es6/language/__grouped__.json'
+    const validUrl = `${urlPath}__grouped__.json`
 
     // act
 
@@ -21,7 +22,7 @@ describe ('loading JSON from server', function () {
 
   it ('file does NOT exist', function (done) {
     //arrange
-    var wrongUrl = 'http://katas.tddbin.com/katas/es6/language/__all__.json'
+    const wrongUrl = `${urlPath}__all__.json`
 
     // act
 
