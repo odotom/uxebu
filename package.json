@@ -10,7 +10,7 @@
     "test": "mocha --compilers js:babel-core/register",
     "build": "mkdir -p dist; npm run build:html; npm run build:js",
     "build:watch": "chokidar 'src' -c 'npm run build' ",
-    "build:html": "cp src/index.html dist",
+    "build:html": "cp src/index.html dist; cp -R vendor/pure-layout-email/css vendor/pure-layout-email/img dist",
     "build:js": "browserify src/index.js --outfile=dist/index.js --transform=babelify",
     "postbuild:js": "uglifyjs dist/index.js -m -c > dist/index.min.js && rm dist/index.js "
   },

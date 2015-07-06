@@ -5,9 +5,10 @@ export default class JSONLoader {
 
   static loadRemoteFile(fileUrl, onLoaded) {
 
-    var data = ''
-    var options = url.parse(fileUrl)
-    var request = http.request(options, function (res) {
+    let data = ''
+    let options = url.parse(fileUrl)
+    options.withCredentials = false
+    const request = http.request(options, function (res) {
       res.on('data', function (chunk) {
         data += chunk
       })

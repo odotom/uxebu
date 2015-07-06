@@ -1,16 +1,21 @@
 import React from 'react'
+import KataGroups from './components/KataGroups'
 
 class Page extends React.Component {
 
   render () {
+    const {groups} = this.props
+    const groupNames = Object.keys(groups)
+
     return (
       <ul>
-        <li>Item 1</li>
-        <li>Item 2</li>
+        <KataGroups groupNames={groupNames}></KataGroups>
       </ul>
     )
   }
+
 }
+
 
 import JSONLoader from './JSONLoader'
 const url = 'http://katas.tddbin.com/katas/es6/language/__grouped__.json'
