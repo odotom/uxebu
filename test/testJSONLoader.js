@@ -1,5 +1,5 @@
 import  assert from 'assert'
-import {loadRemoteFile as loadRemoteFile} from '../src/loadRemoteFile'
+import {loadRemoteFile as loadRemoteFile} from '../src/JSONLoader'
 
 describe ('loading JSON from server', function () {
   const urlPath = 'http://katas.tddbin.com/katas/es6/language/'
