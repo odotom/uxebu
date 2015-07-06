@@ -1,7 +1,6 @@
-var assert = require('assert')
+import  assert from 'assert'
 
 describe ('loading JSON from server', function () {
-
 
   it ('file does exist', function (done) {
     //arrange
@@ -18,8 +17,6 @@ describe ('loading JSON from server', function () {
 
     })
   })
-
-
 
   it ('file does NOT exist', function (done) {
     //arrange
@@ -41,8 +38,8 @@ describe ('loading JSON from server', function () {
 })
 
 
-var url = require('url')
-var http = require('http')
+import url from 'url'
+import http from 'http'
 
 function loadRemoteFile(fileUrl, onLoaded) {
   var data = ''
