@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Workshop",
   "main": "index.js",
+  "browser": {
+    "react": "./src/shim/react.js"
+  },
   "scripts": {
     "test": "mocha --compilers js:babel-core/register",
     "build": "browserify src/index.js --outfile src/index.min.js --transform=babelify"
