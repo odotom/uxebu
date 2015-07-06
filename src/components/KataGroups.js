@@ -4,16 +4,16 @@ import NavKataGroups from './NavKataGroups'
 export default class KataGroups extends React.Component {
   render() {
     const {groups} = this.props
-    const groupNames = Object.keys(groups)
 
     return (
       <div id="layout" className="content pure-g">
 
-        <NavKataGroups groupNames={groupNames} groups={goups}>
+        <NavKataGroups groups={groups}>
         </NavKataGroups>
 
 
         <div id="list" className="pure-u-1">
+
           <div className="email-item email-item-selected pure-g">
             <div className="pure-u-3-4">
               <h5 className="email-name">basics</h5>
@@ -34,6 +34,7 @@ export default class KataGroups extends React.Component {
               <h5 className="email-name">`raw` property</h5>
             </div>
           </div>
+
         </div>
 
         <div id="main" className="pure-u-1">

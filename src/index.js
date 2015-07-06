@@ -6,11 +6,12 @@ class Page extends React.Component {
 
   render () {
     const {groups} = this.props
+    const groupNames = Object.keys(groups)
 
     return (
       <div id="layout" className="content pure-g">
         <NavKataGroups groups={groups}></NavKataGroups>
-        <KataItems group={groups[0]}></KataItems>
+        <KataItems group={groups[groupNames[0]]}></KataItems>
 
       </div>
     )
