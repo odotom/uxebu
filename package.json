@@ -4,7 +4,8 @@
   "description": "Workshop",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --compilers js:babel-core/register"
+    "test": "mocha --compilers js:babel-core/register",
+    "build": "browserify src/index.js --outfile src/index.min.js --transform=babelify"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +15,7 @@
     "mocha": "^2.2.5"
   },
   "dependencies": {
+    "babelify": "^6.1.2",
     "browserify": "^10.2.4",
     "react": "^0.13.3"
   }
