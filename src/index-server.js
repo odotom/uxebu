@@ -24,7 +24,7 @@ const url = 'http://katas.tddbin.com/katas/es6/language/__grouped__.json'
 
 // groups destructured from result
 JSONLoader.loadRemoteFile(url, (err, {groups={}}) => {
-  React.render(<Page groups={groups} />, document.getElementById('app'))
+  console.log(React.renderToString(<Page groups={groups} />))
 })
 
 //React.render(<Page />, document.getElementById('app'))
