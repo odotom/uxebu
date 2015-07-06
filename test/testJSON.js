@@ -27,10 +27,13 @@ describe ('loading JSON from server', function () {
 
     // act
 
-    loadRemoteFile(wrongUrl, function (err, data) {
+    loadRemoteFile(wrongUrl, function (err, result) {
 
-      assert.deepEqual(result, {})
-      done()
+      // assert
+      assert.equal(err, null);
+      //assert.equal(result.substr(0,13),"{\n  \"groups\":");
+      assert.deepEqual(result, {});
+      done();
 
     })
   })
