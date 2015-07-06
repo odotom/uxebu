@@ -1,6 +1,7 @@
 import React from 'react'
 import NavKataGroups from './components/NavKataGroups'
 import KataItems from './components/KataItems'
+import KataDescription from './components/KataDescription'
 
 class Page extends React.Component {
 
@@ -12,13 +13,12 @@ class Page extends React.Component {
       <div id="layout" className="content pure-g">
         <NavKataGroups groups={groups}></NavKataGroups>
         <KataItems group={groups[groupNames[0]]}></KataItems>
-
+        <KataDescription item={groups[groupNames[0]].items[0]}></KataDescription>
       </div>
     )
   }
 
 }
-
 
 import JSONLoader from './JSONLoader'
 const url = 'http://katas.tddbin.com/katas/es6/language/__grouped__.json'
