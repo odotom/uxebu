@@ -7,7 +7,6 @@ class Page extends React.Component {
       <ul>
         <li>item 1</li>
       </ul>
-
     )
   }
 }
