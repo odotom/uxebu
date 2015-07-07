@@ -5,7 +5,7 @@ export default class RawKataData {
     this.url = url;
   }
   load(onError, onSuccess) {
-    this.loadRemoteFile('', (err, data) => {
+    this.loadRemoteFile( this.url, (err, data) => {
       if (err) {
         onError(err);
       } else {

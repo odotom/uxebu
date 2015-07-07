@@ -1,4 +1,5 @@
 export default class KataGroups {
+
   static fromRawKataData(rawGroups) {
     let kataGroups = new KataGroups();
     kataGroups.groups = Object

@@ -1,5 +1,5 @@
 import React from 'react'
-import NavKataGroups from './components/NavKataGroups'
+import NavKataGroups from './components/KataGroups'
 import KataItems from './components/KataItems'
 
 class Page extends React.Component {

@@ -5,7 +5,8 @@ export default class KataItems extends React.Component {
   render () {
 
     const {group} = this.props
-    const items = group.items
+    const items = group.katas
+
 
     return (
       <div id="list" className="pure-u-1">
