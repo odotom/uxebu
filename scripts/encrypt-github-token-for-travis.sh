@@ -6,4 +6,4 @@ if [ $# -eq 0 ]; then
   exit
 fi
 
-travis-encrypt -r tddbin/es6katas.org GH_TOKEN=$1
+travis-encrypt -r odotom/uxebu GH_TOKEN=$1
