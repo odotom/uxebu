@@ -1,19 +1,26 @@
 import React from 'react'
+import {KataGroup} from '../katagroups'
 
-export default class KataItems extends React.Component {
+export default class Katas extends React.Component {
+
+  // requires .babelrc
+  static propTypes = {
+    kataGroup: React.PropTypes.instanceOf(KataGroup).isRequired
+  }
+
 
   render () {
 
     const {group} = this.props
-    const items = group.katas
+    const {katas} = group
 
 
     return (
       <div id="list" className="pure-u-1">
-        {items.map(item =>
+        {katas.map(kata =>
           <div className="email-item pure-g">
             <div className="pure-u-3-4">
-              <h5 className="email-name">{item.name}</h5>
+              <h5 className="email-name">{kata.name}</h5>
             </div>
           </div>
         )}
@@ -21,3 +28,7 @@ export default class KataItems extends React.Component {
     )
   }
 }
+
+//Katas.propTypes = {
+//  kataGroup: React.PropTypes.instanceOf(KataGroup).isRequired
+//}
