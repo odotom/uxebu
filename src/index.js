@@ -20,7 +20,7 @@ class Page extends React.Component {
 
 }
 
-import JSONLoader from './JSONLoader'
+import JSONLoader from '_ext-deps/JSONLoader'
 const url = 'http://katas.tddbin.com/katas/es6/language/__grouped__.json'
 
 // groups destructured from result

@@ -22,6 +22,7 @@
     "chokidar": "^1.0.3",
     "chokidar-cli": "^0.3.0",
     "mocha": "^2.2.5",
+    "sinon": "^1.15.4",
     "uglifyjs": "^2.4.10"
   },
   "dependencies": {
