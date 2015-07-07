@@ -24,7 +24,7 @@ export default class NavKataGroups extends React.Component {
               <li className="pure-menu-item">
               </li>
               {groups.map (group => <li className="pure-menu-item">
-                <a href="#" className="pure-menu-link">{group.name}  <span className="email-count">({group.katasCount})</span></a>
+                <a href={`#group=${group.name}`} className="pure-menu-link">{group.name}  <span className="email-count">({group.katasCount})</span></a>
               </li>)}
             </ul>
           </div>

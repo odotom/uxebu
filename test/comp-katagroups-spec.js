@@ -21,4 +21,8 @@ describe('kata groups component', function() {
     let kataGroups = KataGroups.fromRawKataData(rawData);
     assert.hasChildOfType(<Page groups={kataGroups} />, KatasComponent);
   });
+
+  it('', function () {
+
+  })
 });

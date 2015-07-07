@@ -9,9 +9,9 @@ export function hasChildOfType(componentToRender, type) {
   let output = shallowRenderer.getRenderOutput();
 
   let components = output.props.children;
-  console.log("\n###Output:#### ", output)
-  console.log("####Props:#### ", output.props)
-  console.log("####Children##### ", output.props.children)
+  //console.log("\n###Output:#### ", output)
+  //console.log("####Props:#### ", output.props)
+  //console.log("####Children##### ", output.props.children)
   assert.equal(components
       .map(component => TestUtils.isElementOfType(component, type))
       .some(value => value)
