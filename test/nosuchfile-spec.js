@@ -1,6 +1,6 @@
 import assert from 'assert';
 import sinon from 'sinon';
-import RawKataData from '../src/rawkata.js';
+import RawKataData from '../src/rawKata.js';
 
 assert.calledWith = sinon.assert.calledWith;
 assert.notCalled = sinon.assert.notCalled;
