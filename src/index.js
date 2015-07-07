@@ -1,24 +1,5 @@
 import React from 'react'
-import NavKataGroups from './components/KataGroups'
-import KataItems from './components/KataItems'
-import KataDescription from './components/KataDescription'
-
-class Page extends React.Component {
-
-  render () {
-    const {groups} = this.props.groups
-
-    return (
-      <div id="layout" className="content pure-g">
-        <NavKataGroups groups={groups}></NavKataGroups>
-        <KataItems group={groups[0]}></KataItems>
-        <KataDescription item={groups[0].katas[0]}></KataDescription>
-      </div>
-    )
-  }
-
-}
-
+import Page from './components/Page'
 
 import {Loader} from './_ext-deps/Loader'
 import KataGroups from './katagroups'
