@@ -1,33 +1,36 @@
 import React from 'react'
+import app from 'ampersand-app'
 
 import Page from './components/Page'
 import {Loader} from './_ext-deps/Loader'
 import KataGroups from './katagroups'
 import RawKataData from './rawKata'
 
-const url = 'http://katas.tddbin.com/katas/es6/language/__grouped__.json'
+window.app = app
 
-let rawKataData = new RawKataData(Loader.loadRemoteFile, url)
-let kataGroups
+app.extend({
 
-function clickKata (kataId) {
-  console.log('Clicked')
-  kataGroups.selectKataById(kataId)
-  React.render(<Page groups={kataGroups} clickKata={clickKata}/>, document.getElementById('app'))
-}
+  renderPage () {
+    React.render(<Page groups={this.kataGroups}/>, document.getElementById('app'))
+  },
 
-function urlChanged (newUrl) {
-  kataGroups.selectGroupByName(newUrl.split('#group=')[1])
-  React.render(<Page groups={kataGroups} clickKata={clickKata}/>, document.getElementById('app'))
-}
+  init () {
+    const url = 'http://katas.tddbin.com/katas/es6/language/__grouped__.json'
+    const rawKataData = new RawKataData(Loader.loadRemoteFile, url)
 
-rawKataData.load( () => {
-  console.log('raw data error')
-}, (rawKataData) => {
-  kataGroups = KataGroups.fromRawKataData(rawKataData.groups)
-  React.render(<Page groups={kataGroups} clickKata={clickKata}/>, document.getElementById('app'))
+    // load kata data and start page
+    rawKataData.load(() => {
+      console.error('raw data load error')
+    }, (rawKataData) => {
+      this.kataGroups = KataGroups.fromRawKataData(rawKataData.groups)
+      this.renderPage()
+    })
+
+    window.addEventListener('hashchange', ({newURL}) => {
+      this.kataGroups.selectGroupByName(newURL.split('#group=')[1])
+      this.renderPage()
+    })
+  }
 })
 
-window.addEventListener('hashchange', ({newURL}) => {
-  urlChanged(newURL)
-})
+app.init()
