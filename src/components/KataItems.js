@@ -1,26 +1,26 @@
 import React from 'react'
-import {KataGroup} from '../katagroups'
 import classnames from 'classnames'
+import KataGroups, {KataGroup} from '../katagroups'
 
 export default class Katas extends React.Component {
 
-  // requires .babelrc
+  // static here requires .babelrc
   static propTypes = {
-    kataGroup: React.PropTypes.instanceOf(KataGroup).isRequired
+    kataGroup: React.PropTypes.instanceOf(KataGroup).isRequired,
+    kataGroups: React.PropTypes.array.isRequired
   }
 
-
   render () {
-
     const {group, clickKata, slctKata} = this.props
     const {katas} = group
 
-
-
+    // onclick on separate div to make it work
     return (
       <div id="list" className="pure-u-1">
-        {katas.map(kata =>
-          <KataItem  clickKata={clickKata} kata={kata} slctKata={slctKata}></KataItem>
+        {katas.map (kata =>
+          <div onClick={clickKata.bind(this, kata.id)} key={`kata-${kata.id}`}>
+            <KataItem  kata={kata} slctKata={slctKata} ></KataItem>
+          </div>
         )}
       </div>
     )
@@ -29,14 +29,17 @@ export default class Katas extends React.Component {
 
 class KataItem extends React.Component {
 
+  static propTypes = {
+    kata: React.PropTypes.array.isRequired,
+    slctKata: React.PropTypes.object.isRequired
+  }
+
   render () {
-
-    const {clickKata,kata, slctKata} = this.props
-
-    let clsNames = {'email-item': true, 'email-item-selected': (Object.is(slctKata, kata)), 'pure-g':true}
+    const {kata, slctKata} = this.props
+    let clsNames = {'email-item': true, 'email-item-selected': Object.is(slctKata, kata), 'pure-g':true}
 
     return (
-      <div className={classnames(clsNames)} onClick={clickKata.bind(null, kata.id)}>
+      <div className={classnames(clsNames)}>
         <div className="pure-u-3-4">
           <h5 className="email-subject">{kata.name} </h5>
           <p className='email-desc'>{kata.description}</p>
@@ -47,6 +50,4 @@ class KataItem extends React.Component {
   }
 }
 
-//Katas.propTypes = {
-//  kataGroup: React.PropTypes.instanceOf(KataGroup).isRequired
-//}
+
