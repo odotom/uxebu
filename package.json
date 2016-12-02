@@ -1,6 +1,6 @@
 {
   "name": "uxebu",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Workshop",
   "main": "index.js",
   "browser": {
