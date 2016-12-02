@@ -1,13 +1,18 @@
 language: node_js
 node_js:
   - "6"
+cache:
+  yarn: true
+
+branches:
+  except:
+    - gh-pages
 
 after_success:
-  - chmod +x ./scripts/*.sh
-  - chmod +x ./scripts/for-travis/*.sh
-  - ./scripts/for-travis/build-and-deploy.sh
-
+  - npm run gh-pages-travis
 env:
  global:
  - GH_REF: github.com/odotom/uxebu.git
+ - SSH_KEY="github_rsa"
+ - DEPLOY_BRANCH="master"
  - secure:  nYZwmgfINz3rOSSgNGdAGXZ9F5btOnOPWTGIzkPULXM9hG4FGWnX+xv00eqZxN2IhG2gpviSlbRhabX2tY6N5a6rKQda39Z0r0hqUdWekLTLKhO55E/bCDgEf1USF6RtkFJDaofEl+PVDhVduG9wdXf3BYQuGHBPAHj8k599wuwUTaVqVnA1hgBkLaj4KmR7fVyLVuXvXdhh87YNHDe8lp8qvAbl+QRHBE6Mmaorw+FaYM6vX3FtAnkIg0cg6lEi4DKgRTGO7gaOxv0rU9Io8eSgS0DmUg1GfSVxuUnjQTWccYvl8EXPe/RN6aRSCWqC95FJ2/9WFuhCKnzhdd/hQeVY1kTdurzWHILG42mQtx4MlstVklhg81C8HsH2Dr/gT+62sgbDYRPF54o2d3a7pgPU/WRvNV1Fw4x2RiB1XYcXm4ThhPr2HtaNMcizX2DKCQMz+Z5z1UPwQKj8nKK/ndrLW5NPRlGKbeWsBUMxoEtIipVDk4bDvMssHC31/V7u2SS5vwsO5TfN7/gcXXZEpXPkF2z+0rfhmKLGUA7KT+gSbmwOSdgm8A4ZF38QiVvjpsMjK/LB7kW5HvaB6dMbGSeCaC2UBs/mxBGlVnB2Y9ZphyRp9jNRA+tBNpIt16zw9nYTj5xctnsFj+hrz8N2dKP2egERRvT40VzCzl3vrkA=

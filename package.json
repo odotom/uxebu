@@ -8,6 +8,7 @@
   },
   "scripts": {
     "test": "mocha --compilers js:babel-core/register",
+    "gh-pages-travis": "gh-pages-travis",
     "build": "mkdir -p dist; npm run build:html; npm run build:app",
     "build:watch": "chokidar 'src' -c 'npm run build' ",
     "build:html": "cp src/index.html dist; cp -R vendor/pure-layout-email/css vendor/pure-layout-email/img dist",
@@ -21,6 +22,7 @@
     "babel-core": "^5.6.15",
     "chokidar": "^1.0.3",
     "chokidar-cli": "^0.3.0",
+    "gh-pages-travis": "^1.0.0",
     "mocha": "^2.2.5",
     "sinon": "^1.15.4",
     "travis-encrypt": "^1.1.1",
